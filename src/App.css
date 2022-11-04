@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+*,*::after,*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgb(168, 168, 168);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-list-container{
+  max-height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* overflow: auto; */
+  width: 100%;
+  margin: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.control-ul{
+  display: flex;
+  list-style: none;
+  width: 100%;
+  justify-content: space-around;
+  position: sticky;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-bottom: 1px solid black;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.control-ul li:hover{
+  cursor: pointer;
+  color: royalblue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  height: 600px;
+  width: 100%;
+  background-color: aqua;
+  overflow: auto;
+  
 }
+.todo-ul li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.todo-ul li input[type="checkbox"]{
+  width: 2rem;
+  height: 2rem;
+}
+
+.todo{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
