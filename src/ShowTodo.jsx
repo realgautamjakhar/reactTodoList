@@ -78,7 +78,7 @@ function Todo({ todo }) {
     <>
       <input
         type="checkbox"
-        name="{`${todo.id}-done`}"
+        name={`${todo.id}-done`}
         id={`${todo.id}-done`}
         checked={todo.done}
         onChange={(e) => {
