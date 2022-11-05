@@ -3,17 +3,20 @@ import { TodosDispatchContext } from "./todolist";
 let nextId = 4;
 const AddTodo = () => {
   const dispatch = useContext(TodosDispatchContext);
-  const [text, setText] = useState("");
+  const [text, setText] = useState(" ");
   return (
     <>
       <input
         type="text"
         name="newTodo"
         id="newTodo"
+        placeholder="Any New Todo?... Right it Here!!"
+        className="todo-input"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
       <button
+        className="btn"
         onClick={() => {
           dispatch({
             type: "add",
@@ -23,7 +26,7 @@ const AddTodo = () => {
           setText("");
         }}
       >
-        Add
+        Add Todo
       </button>
     </>
   );

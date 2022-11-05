@@ -1,6 +1,7 @@
-import React, { createContext, useReducer, useState } from "react";
+import React, { createContext, useReducer } from "react";
 import AddTodo from "./AddTodo";
 import ShowTodo from "./ShowTodo";
+
 const initialTodos = [
   { id: 1, text: "learn javascript", done: true },
   { id: 2, text: "Learn react", done: false },
@@ -38,21 +39,15 @@ function reducer(todos, action) {
 
 const Todolist = () => {
   const [todos, dispatch] = useReducer(reducer, initialTodos);
-
   return (
     <TodosContext.Provider value={todos}>
       <TodosDispatchContext.Provider value={dispatch}>
         <main className="container">
+          <h1 className="heading">Todo App</h1>
           <div className="todo">
-            <h2>Todo App</h2>
             <AddTodo />
           </div>
           <div className="todo-list-container">
-            <ul className="control-ul">
-              <li>All</li>
-              <li>Active</li>
-              <li>Completed</li>
-            </ul>
             <ShowTodo />
           </div>
         </main>
