@@ -1,12 +1,19 @@
-import './App.css';
-
-import Todolist from './todolist';
+import "./App.css";
+import { motion } from "framer-motion";
+import Todolist from "./todolist";
 
 function App() {
   return (
-    <div className="App">
-      <Todolist />
-    </div>
+    <>
+      <motion.div
+        initial={{ opacity: 0.5 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="App"
+      >
+        <Todolist />
+      </motion.div>
+    </>
   );
 }
 

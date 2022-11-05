@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
 import { TodosContext, TodosDispatchContext } from "./todolist";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 const ShowTodo = () => {
@@ -31,9 +32,14 @@ const AllTodo = () => {
   return (
     <ul className="todo-ul">
       {todos.map((todo) => (
-        <li key={todo.id}>
+        <motion.li
+          initial={{ scale: 0, opacity: 0.1 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          key={todo.id}
+        >
           <Todo todo={todo} />
-        </li>
+        </motion.li>
       ))}
     </ul>
   );
@@ -47,9 +53,14 @@ const CompletedTodos = () => {
     <>
       <ul className="todo-ul">
         {completedTodos.map((todo) => (
-          <li key={todo.id}>
+          <motion.li
+            initial={{ scale: 0, opacity: 0.1 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            key={todo.id}
+          >
             <Todo todo={todo} />
-          </li>
+          </motion.li>
         ))}
       </ul>
     </>
@@ -62,9 +73,14 @@ const ActiveTodo = () => {
     <>
       <ul className="todo-ul">
         {activeTodos.map((todo) => (
-          <li key={todo.id}>
+          <motion.li
+            initial={{ scale: 0, opacity: 0.1 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            key={todo.id}
+          >
             <Todo todo={todo} />
-          </li>
+          </motion.li>
         ))}
       </ul>
     </>
