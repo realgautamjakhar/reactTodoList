@@ -1,7 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import AddTodo from "./AddTodo";
 import ShowTodo from "./ShowTodo";
-import { motion } from "framer-motion";
 const initialTodos = [
   { id: 1, text: "learn javascript", done: true },
   { id: 2, text: "Learn react", done: false },
