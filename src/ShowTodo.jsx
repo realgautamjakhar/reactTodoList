@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
+import { VscClose } from "react-icons/vsc";
 import { TodosContext, TodosDispatchContext } from "./todolist";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 const ShowTodo = () => {
@@ -58,6 +59,7 @@ const CompletedTodos = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
             key={todo.id}
+            className="completed-todo"
           >
             <Todo todo={todo} />
           </motion.li>
@@ -92,44 +94,33 @@ function Todo({ todo }) {
 
   return (
     <>
-      <input
-        type="checkbox"
-        name={`${todo.id}-done`}
-        id={`${todo.id}-done`}
-        checked={todo.done}
-        onChange={(e) => {
-          dispatch({
-            type: "change",
-            todo: { ...todo, done: e.target.checked },
-          });
-        }}
-      />
-      {todo.text}
-      <button
-        className="remove-btn"
-        title="Remove Todo"
-        onClick={() => {
-          dispatch({
-            type: "remove",
-            id: todo.id,
-          });
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="white"
-          class="w-6 h-6"
+      <div className="single-todo">
+        <input
+          type="checkbox"
+          name={`${todo.id}-done`}
+          id={`${todo.id}-done`}
+          checked={todo.done}
+          onChange={(e) => {
+            dispatch({
+              type: "change",
+              todo: { ...todo, done: e.target.checked },
+            });
+          }}
+        />
+        {todo.text}
+        <button
+          className="remove-btn"
+          title="Remove Todo"
+          onClick={() => {
+            dispatch({
+              type: "remove",
+              id: todo.id,
+            });
+          }}
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
+          <VscClose className="icon" />
+        </button>
+      </div>
     </>
   );
 }

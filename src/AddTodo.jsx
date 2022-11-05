@@ -3,7 +3,7 @@ import { TodosDispatchContext } from "./todolist";
 let nextId = 4;
 const AddTodo = () => {
   const dispatch = useContext(TodosDispatchContext);
-  const [text, setText] = useState(" ");
+  const [text, setText] = useState("");
   return (
     <>
       <input

@@ -24,11 +24,10 @@
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  
   align-items: center;
+  justify-content: center;
   gap: 2rem;
   padding: 1rem;
-  padding-top: 5rem;
   position: relative;
   background-color: #363636;
   background-image: url(assets/TodoBackground.svg);
@@ -40,49 +39,45 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-}
-.todo h2{
-  font-size: 5rem;
-  text-transform: capitalize;
 }
 .todo-input{
   z-index: 3;
   width: 100%;
-  font-size: 3rem;
+  font-size: 2.5rem;
   padding: .5rem 1rem;
   border: none;
   color: white;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(54, 54, 54, 0.9);
   border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(54, 54, 54, 1);
 }
 .todo-input:focus{
-  outline:2px solid whitesmoke;
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  outline:1px solid whitesmoke;
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
 }
 .todo-input::placeholder{
   font-size: 1rem;
   color: white;
 }
 .btn{
-  z-index: 3;
   background: rgba(255, 255, 255, 0.2);
   color: whitesmoke;
   font-size: 1rem;
   text-transform: uppercase;
-  padding: 1rem 1rem 1rem 1rem;
-  height: 70px;
-  width: 150px;
+  padding: 1rem 2rem 1rem 2rem;
   border: none;
   border-radius: 8px;
 }
 .btn:hover{
   cursor: pointer;
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0px 0px 55px #ffffff;
+  box-shadow: 0px 0px 25px #ffffff;
   transition: all ease-out .5s;
 }
 
@@ -91,19 +86,8 @@
   background-color: transparent;
   border: none;
 }
-.remove-btn svg{
-  width: 30px;
-  height: 30px;
 
-}
-.remove-btn svg:hover{
-  width: 45px;
-  height: 45px;
-  stroke: white;
-  transition: all ease-out .5s;
-}
 .todo-list-container{
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,46 +101,38 @@
   overflow: auto;
   transition: all 2s;
 }
-.todo-ul li {
+.single-todo {
   display: grid;
-  grid-template-columns: auto 1fr 60px;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
+  justify-items: center;
   gap: 1rem;
-  min-width: 300px;
-  max-width: 100%;
   font-size: 1.5rem;
   text-transform: capitalize;
-  min-height: 70px;
-  padding: .5rem 2rem;
+  padding: .5rem 1rem .5rem 2rem;
 
-  background: rgba(255, 255, 255, 0.25);
+  /* From https://css.glass */
+  background: rgba(54, 54, 54, 0.9);
   border-radius: 8px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(54, 54, 54, 1);
 }
 
 .todo-ul li input[type="checkbox"]{
-  width: 1rem;
-  height: 1rem;
-  
-}
-
-
-@media screen and (max-width:800px) {
-  
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .category-change{
-  min-width: 350px;
+  min-width: 330px;
   display: flex;
   justify-content: space-around;
   list-style: none;
   text-decoration: none;
   margin-bottom: 2rem;
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid white;
   padding-bottom: 1rem;
 }
 .category-change li a {
@@ -165,4 +141,16 @@
 
 .heading{
   font-size: 4rem;
+}
+
+.completed-todo{
+  text-decoration: line-through;
+}
+
+.remove-btn{
+  justify-self: flex-end;
+}
+.icon{
+  width: 40px;
+  height: 40px;
 }
