@@ -10,7 +10,7 @@ const AddTodo = () => {
         type="text"
         name="newTodo"
         id="newTodo"
-        placeholder="Any New Todo?... Right it Here!!"
+        placeholder="Any New Todo?... Type Here!!!"
         className="todo-input"
         value={text}
         onChange={(e) => setText(e.target.value)}
