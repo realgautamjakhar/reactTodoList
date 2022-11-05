@@ -1,13 +1,6 @@
 import React, { useContext } from "react";
 import { TodosContext, TodosDispatchContext } from "./todolist";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 const ShowTodo = () => {
   return (
     <Router>
