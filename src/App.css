@@ -137,6 +137,7 @@
 }
 .category-change li a {
   text-decoration: none;
+  
 }
 
 .heading{
@@ -153,4 +154,10 @@
 .icon{
   width: 40px;
   height: 40px;
+}
+
+.linkActive a{
+  color: rgb(100, 85, 255);
+  font-weight: 800;
+  font-size: 1.2rem;
 }

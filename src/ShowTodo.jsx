@@ -3,18 +3,42 @@ import { motion } from "framer-motion";
 import { VscClose } from "react-icons/vsc";
 import { TodosContext, TodosDispatchContext } from "./todolist";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
 const ShowTodo = () => {
+  const [linkActive, setlinkActive] = useState("All");
+  function handleActiveClick(e) {
+    if (e.target.innerHTML === "All") {
+      setlinkActive("All");
+    } else if (e.target.innerHTML === "Completed") {
+      setlinkActive("Completed");
+    } else if (e.target.innerHTML === "Active") {
+      setlinkActive("Active");
+    }
+    console.log(linkActive);
+  }
   return (
     <Router>
       <div>
         <ul className="category-change">
-          <li>
+          <li
+            id="All"
+            className={linkActive === "All" ? "linkActive" : ""}
+            onClick={(e) => handleActiveClick(e)}
+          >
             <Link to="/">All</Link>
           </li>
-          <li>
+          <li
+            id="Completed"
+            className={linkActive === "Completed" ? "linkActive" : ""}
+            onClick={(e) => handleActiveClick(e)}
+          >
             <Link to="/Completed">Completed</Link>
           </li>
-          <li>
+          <li
+            id="Active"
+            className={linkActive === "Active" ? "linkActive" : ""}
+            onClick={(e) => handleActiveClick(e)}
+          >
             <Link to="/Active">Active</Link>
           </li>
         </ul>
